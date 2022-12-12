@@ -6,24 +6,26 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Alias("user")
+@Alias("User")
 @Getter
 @Setter
 @ToString
 public class UserDTO {
-	int id;
+	String id;
+	String password;
 	String name;
 	String gender;
-	String city;
+	
+	
 	
 	public UserDTO() {}
 
-	public UserDTO(int id, String name, String gender, String city) {
+	public UserDTO(String id, String password, String name, String gender) {
 		super();
 		this.id = id;
+		this.password = password;
 		this.name = name;
 		this.gender = gender;
-		this.city = city;
 	}
 
 	public UserDTO(String name) {
