@@ -33,11 +33,9 @@ public class CustomUserDetailsService implements UserDetailsService {
  
 		System.out.println(user);
 		if (user != null) {
-			System.out.println("hi");
 			grantedAuthorities.add(new SimpleGrantedAuthority("USER")); // USER 라는 역할을 넣어준다.
 			return new User(user.getId(), user.getPassword(), grantedAuthorities);
 		} else {
-			System.out.println("bye");
 			throw new UsernameNotFoundException("can not find User : " + id);
 		}
 	}

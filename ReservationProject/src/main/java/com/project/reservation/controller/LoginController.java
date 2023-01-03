@@ -27,21 +27,21 @@ public class LoginController {
 	 
 	@GetMapping("/login")
 	public String login(HttpServletRequest request) {
-		System.out.println("getLogin");
 		return "login";
 	}
-	 
+	@RequestMapping("/login")
+	public String login() {
+		return "redirect:/home_user";
+	}
 
 	@GetMapping("/signUp")
 	public String signUp(Model model) {
-		System.out.println("get 됨?");
 		model.addAttribute("userDto", new UserDTO());
 		return "signUp";
 	}
  
 	@RequestMapping("/signUp")
 	public String signUp(@ModelAttribute("userDto") UserDTO userDto) {
-		System.out.println("post 됨?");
 		userService.insert(userDto);
 		return "redirect:/login";
 	}
