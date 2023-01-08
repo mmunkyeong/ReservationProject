@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
  
 import com.project.reservation.dao.UserRepository;
-import com.project.reservation.model.*;
  
 import lombok.AllArgsConstructor;
  
@@ -31,7 +30,6 @@ public class CustomUserDetailsService implements UserDetailsService {
  
 		com.project.reservation.model.User user = userRepository.findOneById(id);
  
-		System.out.println(user);
 		if (user != null) {
 			grantedAuthorities.add(new SimpleGrantedAuthority("USER")); // USER 라는 역할을 넣어준다.
 			return new User(user.getId(), user.getPassword(), grantedAuthorities);
