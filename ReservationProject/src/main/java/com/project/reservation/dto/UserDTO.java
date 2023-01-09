@@ -1,35 +1,22 @@
 package com.project.reservation.dto;
-
-import org.apache.ibatis.type.Alias;
-
+ 
+import com.project.reservation.model.User;
+ 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-
-@Alias("User")
+ 
 @Getter
 @Setter
-@ToString
+@NoArgsConstructor
 public class UserDTO {
-	String id;
-	String password;
-	String name;
-	String gender;
-	
-	
-	
-	public UserDTO() {}
-
-	public UserDTO(String id, String password, String name, String gender) {
-		super();
-		this.id = id;
-		this.password = password;
-		this.name = name;
-		this.gender = gender;
-	}
-
-	public UserDTO(String name) {
-		super();
-		this.name = name;
+	private String id;
+ 
+	private String password;
+ 
+	private String name;
+ 
+	public User toEntity() {
+		return User.builder().id(id).password(password).name(name).build();
 	}
 }
